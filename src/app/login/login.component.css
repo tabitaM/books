@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+  font-size: 5.5em;
+  margin-top: 15%;
+}
+
+.enterApp a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #9DC5BB;
+  font-size: 1.5em;
+}
+
+img {
+  width: 15%;
+  display: block;
+  margin: 3% auto 0 auto;
+}
