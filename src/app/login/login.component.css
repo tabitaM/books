@@ -4,9 +4,13 @@ h1 {
   margin-top: 15%;
 }
 
-.enterApp a {
+.enterApp {
   display: flex;
   justify-content: center;
+}
+
+.enterApp a {
+  width: fit-content;
   text-decoration: none;
   color: #9DC5BB;
   font-size: 1.5em;
