@@ -16,6 +16,5 @@ export class LoginComponent implements OnInit {
       console.log('User details: ', user);
       this.user = user;
     });
-    return this.user;
   }
 }
