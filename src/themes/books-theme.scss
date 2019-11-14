@@ -1,0 +1,7 @@
+@import '~@angular/material/_theming.scss';
+
+$books-primary: mat-palette($mat-indigo);
+$books-accent: mat-palette($mat-teal);
+$books-warn: mat-palette($mat-red);
+
+$books-theme: mat-light-theme($books-primary, $books-accent, $books-warn);

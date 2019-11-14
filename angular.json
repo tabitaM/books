@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/themes/books-theme",
               "src/styles.scss"
             ],
             "scripts": [],
