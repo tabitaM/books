@@ -10,6 +10,9 @@ import { IUser } from '../interfaces/IUser';
 export class LoginComponent {
   user: IUser = null;
   constructor(private endpointService: EndpointService) {
-    this.user = this.endpointService.getCachedUser();
+    this.endpointService.getUser().subscribe((user: IUser) => {
+      console.log('User details: ', user);
+      this.user = user;
+    });
   }
 }
