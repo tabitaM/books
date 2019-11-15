@@ -1,7 +1,11 @@
-@import '~@angular/material/_theming.scss';
+@import '~@angular/material/theming';
 
-$books-primary: mat-palette($mat-indigo);
+//@include mat-core();
+
+$books-primary: mat-palette($mat-red);
 $books-accent: mat-palette($mat-teal);
 $books-warn: mat-palette($mat-red);
 
 $books-theme: mat-light-theme($books-primary, $books-accent, $books-warn);
+
+//@include angular-material-theme($books-theme);
