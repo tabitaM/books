@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IBooks } from '../interfaces/IBooks';
 import { ICategories } from '../interfaces/ICategories';
+import { IUser } from '../interfaces/IUser';
 import { EndpointService } from '../service/endpoint.service';
 
 @Component({
@@ -9,13 +10,21 @@ import { EndpointService } from '../service/endpoint.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  user: IUser = null;
   books: IBooks[] = null;
   categories: ICategories[] = null;
   constructor(private endpointService: EndpointService) {}
 
   ngOnInit() {
+    this.getUser();
     this.getBooks();
     this.getCategories();
+  }
+  getUser() {
+    this.endpointService.getUser().subscribe((user: IUser) => {
+      console.log('User details: ', user);
+      this.user = user;
+    });
   }
 
   getBooks() {

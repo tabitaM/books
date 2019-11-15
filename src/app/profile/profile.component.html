@@ -13,20 +13,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<p>Books:</p>
-<div *ngIf="books">
-  <ol>
-    <li *ngFor="let book of books">
-      {{book.id}} {{book.thumbnail}} {{book.title}} {{book.description}} {{book.categoryId}}
-    </li>
-  </ol>
-</div>
-
-<p>Categories:</p>
-<div *ngIf="categories">
-  <ol>
-    <li *ngFor="let category of categories">
-      {{category.id}} {{category.name}} {{category.color}}
-    </li>
-  </ol>
+<div *ngIf="user">
+  {{user.id}} {{user.first_name}} {{user.last_name}} {{user.avatar}} {{user.role}}
+  {{user.city}} {{user.books_number}} {{user.return_date}}
 </div>
