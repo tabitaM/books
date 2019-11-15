@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IBooks } from '../interfaces/IBooks';
 import { ICategories } from '../interfaces/ICategories';
 import { IUser } from '../interfaces/IUser';
@@ -9,22 +9,18 @@ import { EndpointService } from '../service/endpoint.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   user: IUser = null;
   books: IBooks[] = null;
   categories: ICategories[] = null;
-  constructor(private endpointService: EndpointService) {}
-
-  ngOnInit() {
+  constructor(private endpointService: EndpointService) {
     this.getUser();
     this.getBooks();
     this.getCategories();
   }
+
   getUser() {
-    this.endpointService.getUser().subscribe((user: IUser) => {
-      console.log('User details: ', user);
-      this.user = user;
-    });
+    this.user = this.endpointService.getCachedUser();
   }
 
   getBooks() {

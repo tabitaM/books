@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EndpointService } from '../service/endpoint.service';
 import { IUser } from '../interfaces/IUser';
 
@@ -7,14 +7,9 @@ import { IUser } from '../interfaces/IUser';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   user: IUser = null;
-  constructor(private endpointService: EndpointService) {}
-
-  ngOnInit() {
-    this.endpointService.getUser().subscribe((user: IUser) => {
-      console.log('User details: ', user);
-      this.user = user;
-    });
+  constructor(private endpointService: EndpointService) {
+    this.user = this.endpointService.getCachedUser();
   }
 }

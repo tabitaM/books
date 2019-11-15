@@ -9,8 +9,18 @@ import { ICategories } from '../interfaces/ICategories';
   providedIn: 'root'
 })
 export class EndpointService {
+  private user: IUser;
   baseUrl = 'http://localhost:3000';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.getUser().subscribe((user: IUser) => {
+      console.log('User details: ', user);
+      this.user = user;
+    });
+  }
+
+  getCachedUser(): IUser {
+    return this.user;
+  }
 
   getUser(): Observable<IUser> {
     return this.http.get<IUser>(`${this.baseUrl}/user`);

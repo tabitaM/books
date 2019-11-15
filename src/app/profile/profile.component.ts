@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EndpointService } from '../service/endpoint.service';
 import { IUser } from '../interfaces/IUser';
 
@@ -10,9 +10,6 @@ import { IUser } from '../interfaces/IUser';
 export class ProfileComponent {
   private user: IUser = null;
   constructor(private endpointService: EndpointService) {
-    this.endpointService.getUser().subscribe((user: IUser) => {
-      console.log('User details: ', user);
-      this.user = user;
-    });
+    this.user = this.endpointService.getCachedUser();
   }
 }
