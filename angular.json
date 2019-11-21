@@ -23,8 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/themes/books-theme.scss"
+              "src/themes/books-theme.scss",
+              "src/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
