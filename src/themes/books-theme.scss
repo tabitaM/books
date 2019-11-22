@@ -3,7 +3,7 @@
 @include mat-core();
 
 $books-primary: mat-palette($mat-green);
-$books-accent: mat-palette($mat-teal);
+$books-accent: mat-palette($mat-yellow);
 $books-warn: mat-palette($mat-red);
 
 $books-theme: mat-light-theme($books-primary, $books-accent, $books-warn);

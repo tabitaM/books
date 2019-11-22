@@ -13,20 +13,25 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+
 <p>Books:</p>
 <div *ngIf="books">
-  <ol>
-    <li *ngFor="let book of books">
-      {{book.id}} {{book.thumbnail}} {{book.title}} {{book.description}} {{book.categoryId}}
-    </li>
-  </ol>
+  <li *ngFor="let book of books">
+    <mat-card class="booksCard">
+      <mat-card-header>
+        <mat-card-title>{{book.title}}</mat-card-title>
+        <mat-card-subtitle>{{book.description}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </li>
 </div>
 
 <p>Categories:</p>
 <div *ngIf="categories">
-  <ol>
-    <li *ngFor="let category of categories">
-      {{category.id}} {{category.name}} {{category.color}}
-    </li>
-  </ol>
+  <li *ngFor="let category of categories">
+    <mat-grid-list cols="4" rowHeight="100px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">{{category.id}} {{category.name}} {{category.color}}
+      </mat-grid-tile>
+    </mat-grid-list>
+  </li>
 </div>
