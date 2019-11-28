@@ -17,15 +17,37 @@ a {
 
 .booksCard {
   background-color: mat-color($accent);
-  margin-bottom: 5%;
-  margin-top: 2%;
-  // width: 30%;
+  margin: 10px;
+  width: fit-content;
 }
 
 .categoriesCard {
   width: 90px;
+  text-align: center;
+  margin: 15px 30px 15px 15px;
+}
+
+.categories {
+  font-size: 2em;
+  margin-right: 10px;
 }
 
 li {
   list-style-type: none;
+}
+
+.example-container {
+  width: 171vh;
+  height: 100vh;
+  margin: 10px;
+  border: 1px solid #555;
+}
+
+mat-toolbar {
+  position: sticky;
+}
+
+.books {
+  font-size: 2em;
+  margin-left: 10px;
 }
