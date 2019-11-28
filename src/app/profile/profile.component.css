@@ -5,3 +5,33 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+img {
+  width: 15%;
+  border-radius: 50%;
+  margin: 65px 0 20px 0;
+}
+
+.userPrimaryDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.name {
+  font-size: 40px;
+}
+
+.role {
+  font-size: 20px;
+}
+
+hr {
+  margin: 30px 0 30px 0;
+}
+
+.userDetails {
+  font-size: 20px;
+  margin: 0 0 15px 20px;
+}

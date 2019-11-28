@@ -13,25 +13,51 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+Books
+<mat-grid-list cols="3" rowHeight="300px" gutterSize="40px">
+  <mat-grid-tile *ngFor="let category of categories" [colspan]="1">
+    <mat-card [ngStyle]="{'background-color':category.color}" class="categoriesCard">
+
+      <mat-card-title>{{category.name}}</mat-card-title>
+
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile *ngFor="let book of books" [colspan]="1">
+    <mat-card class="booksCard" fxLayoutWrap="wrap" fxLayout="column" fxFlex="90%" fxLayoutGap="16px">
+      <mat-card-title>{{book.title}}</mat-card-title>
+      <mat-card-content>{{book.description}}</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
 
 <p>Books:</p>
 <div *ngIf="books">
   <li *ngFor="let book of books">
-    <mat-card class="booksCard">
-      <mat-card-header>
-        <mat-card-title>{{book.title}}</mat-card-title>
-        <mat-card-subtitle>{{book.description}}</mat-card-subtitle>
-      </mat-card-header>
-    </mat-card>
-  </li>
-</div>
-
-<p>Categories:</p>
-<div *ngIf="categories">
-  <li *ngFor="let category of categories">
-    <mat-grid-list cols="4" rowHeight="100px">
-      <mat-grid-tile [colspan]="1" [rowspan]="1">{{category.id}} {{category.name}} {{category.color}}
+    <mat-grid-list cols="3" rowHeight="45px">
+      <mat-grid-tile [colspan]="2" [rowspan]="10">
+        <mat-card class="booksCard">
+          <mat-card-header>
+            <mat-card-title>{{book.title}}</mat-card-title>
+            <mat-card-subtitle>{{book.description}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
       </mat-grid-tile>
     </mat-grid-list>
   </li>
 </div>
+
+<!-- <p>Categories:</p>
+<div *ngIf="categories">
+  <li *ngFor="let category of categories">
+    <mat-grid-list cols="3" rowHeight="90px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-card [ngStyle]="{'background-color':category.color}" class="categoriesCard">
+          <mat-card-header>
+            <mat-card-title>{{category.name}}</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </li>
+</div> -->

@@ -17,4 +17,15 @@ a {
 
 .booksCard {
   background-color: mat-color($accent);
+  margin-bottom: 5%;
+  margin-top: 2%;
+  // width: 30%;
+}
+
+.categoriesCard {
+  width: 90px;
+}
+
+li {
+  list-style-type: none;
 }
