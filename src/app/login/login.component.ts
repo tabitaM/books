@@ -8,11 +8,5 @@ import { IUser } from '../interfaces/IUser';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  user: IUser = null;
-  constructor(private endpointService: EndpointService) {
-    this.endpointService.getUser().subscribe((user: IUser) => {
-      console.log('User details: ', user);
-      this.user = user;
-    });
-  }
+  constructor(private endpointService: EndpointService) {}
 }

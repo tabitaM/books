@@ -1,5 +1,6 @@
 <h1>
-  Welcome to Books, <span *ngIf="user"> {{user.first_name}} {{user.last_name}}!</span>
+  Welcome to Books, <span *ngIf="endpointService.user"> {{endpointService.user.first_name}}
+    {{endpointService.user.last_name}}!</span>
 </h1>
 
 <div class="enterApp">

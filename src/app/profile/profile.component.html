@@ -6,25 +6,25 @@
       <a [routerLink]="['/home']"> All Books
       </a>
     </span>
-    <span *ngIf="user" class="example-icon">
-      <a [routerLink]="['/profile']">{{user.first_name}}
+    <span *ngIf="endpointService.user" class="example-icon">
+      <a [routerLink]="['/profile']">{{endpointService.user.first_name}}
       </a>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div *ngIf="user">
+<div *ngIf="endpointService.user">
   <div class="userPrimaryDetails">
-    <img src={{user.avatar}}>
-    <span class="name">{{user.first_name}} {{user.last_name}} </span>
-    <span class="role">{{user.role}} </span>
+    <img src={{endpointService.user.avatar}}>
+    <span class="name">{{endpointService.user.first_name}} {{endpointService.user.last_name}} </span>
+    <span class="role">{{endpointService.user.role}} </span>
   </div>
 
   <hr>
 
   <div class="userDetails">
-    <div>City: {{user.city}} </div>
-    <div>Books: {{user.books_number}}</div>
-    <div>Return date: {{ shortDate | date:'dd/MM/y'}}</div>
+    <div>City: {{endpointService.user.city}} </div>
+    <div>Books: {{endpointService.user.books_number}}</div>
+    <div>Return date: {{ endpointService.shortDate | date:'dd/MM/y'}}</div>
   </div>
 </div>
