@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { IBooks } from '../interfaces/IBooks';
-import { ICategories } from '../interfaces/ICategories';
-import { IUser } from '../interfaces/IUser';
 import { EndpointService } from '../service/endpoint.service';
 
 @Component({

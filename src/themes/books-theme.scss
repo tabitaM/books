@@ -2,10 +2,10 @@
 
 @include mat-core();
 
-$books-primary: mat-palette($mat-green);
-$books-accent: mat-palette($mat-yellow);
-$books-warn: mat-palette($mat-red);
+$books-primary: mat-palette($mat-gray, 900);
+$books-accent: mat-palette($mat-gray);
+$books-warn: mat-palette($mat-deep-orange, A200);
 
-$books-theme: mat-light-theme($books-primary, $books-accent, $books-warn);
+$books-theme: mat-dark-theme($books-primary, $books-accent, $books-warn);
 
 @include angular-material-theme($books-theme);
