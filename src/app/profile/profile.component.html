@@ -1,13 +1,13 @@
-<span>Books Library</span>
-<span class="example-spacer"></span>
-<span class="example-icon">
-  <a [routerLink]="['/home']"> All Books
-  </a>
-</span>
-<span *ngIf="endpointService.user" class="example-icon">
-  <a [routerLink]="['/profile']">{{endpointService.user.first_name}}
-  </a>
-</span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <span class="navbar-brand">Books Library</span>
+  <span class="example-spacer"></span>
+  <span class="example-icon">
+    <a [routerLink]="['/home']"> All Books </a>
+  </span>
+  <span *ngIf="endpointService.user" class="example-icon">
+    <a [routerLink]="['/profile']">{{ endpointService.user.first_name }} </a>
+  </span>
+</nav>
 
 <div *ngIf="endpointService.user">
   <div class="userPrimaryDetails">

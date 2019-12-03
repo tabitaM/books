@@ -26,9 +26,40 @@ li {
   margin-left: 10px;
 }
 
-.booksCard {
-  margin: 10px;
-  max-width: 400px;
+.card-img-top {
+  max-height: 200px;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 0.625rem;
+  margin-bottom: 40px;
+}
+
+.card-title {
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #838f93;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.userPhoto {
+  width: 15%;
+  border-radius: 50%;
 }
