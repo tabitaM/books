@@ -1,16 +1,3 @@
-@import '~@angular/material/theming';
-@import '../../themes/books-theme.scss';
-
-$accent: map-get($books-theme, accent);
-
-.example-icon {
-  padding: 0 14px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
-
 a {
   cursor: pointer;
 }
@@ -44,33 +31,4 @@ li {
   max-width: 400px;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-mat-card-title {
-  display: block;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-::ng-deep .mat-card-header-text {
-  margin: 0px !important;
-}
-
-mat-card-subtitle {
-  font-weight: bold;
-}
-
-mat-card-content {
-  display: block;
-  display: -webkit-box;
-  margin: 0 auto;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #838f93;
-  margin-bottom: 16px;
 }

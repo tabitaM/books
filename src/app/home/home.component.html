@@ -1,47 +1,32 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Books Library</span>
-    <span class="example-spacer"></span>
-    <span class="example-icon">
-      <a [routerLink]="['/home']"> All Books </a>
-    </span>
-    <span *ngIf="endpointService.user" class="example-icon">
-      <a [routerLink]="['/profile']">{{ endpointService.user.first_name }} </a>
-    </span>
-  </mat-toolbar-row>
-</mat-toolbar>
+<span>Books Library</span>
+<span class="example-spacer"></span>
+<span class="example-icon">
+  <a [routerLink]="['/home']"> All Books </a>
+</span>
+<span *ngIf="endpointService.user" class="example-icon">
+  <a [routerLink]="['/profile']">{{ endpointService.user.first_name }} </a>
+</span>
 
-<mat-drawer-container class="content">
-  <mat-drawer mode="side" opened>
-    <p class="categories">CATEGORIES</p>
-    <div *ngIf="endpointService.categories">
-      <li *ngFor="let category of endpointService.categories">
-        <mat-card
-          [ngStyle]="{ 'background-color': category.color }"
-          class="categoriesCard"
-        >
-          <mat-card-header>
-            <mat-card-title>{{ category.name }}</mat-card-title>
-          </mat-card-header>
-        </mat-card>
-      </li>
-    </div>
-  </mat-drawer>
-  <mat-drawer-content>
-    <p class="books">BOOKS</p>
-    <mat-grid-list cols="3" rowHeight="400px" gutterSize="40px">
-      <mat-grid-tile *ngFor="let book of endpointService.books">
-        <mat-card class="booksCard">
-          <mat-card-header>
-            <mat-card-title>{{ book.title }}</mat-card-title>
-            <mat-card-subtitle>{{ book.categoryId }}</mat-card-subtitle>
-          </mat-card-header>
-          <img src="{{ book.thumbnail }}" />
-          <mat-card-content
-            ><p>{{ book.description }}</p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-drawer-content>
-</mat-drawer-container>
+
+
+
+<p class="categories">CATEGORIES</p>
+<div *ngIf="endpointService.categories">
+  <li *ngFor="let category of endpointService.categories" [ngStyle]="{ 'background-color': category.color }"
+    class="categoriesCard">
+    {{ category.name }}
+  </li>
+</div>
+
+<p class="books">BOOKS</p>
+<div *ngFor="let book of endpointService.books">
+  <li class="booksCard">
+    {{ book.title }}
+    {{ book.categoryId }}
+
+    <img src="{{ book.thumbnail }}" />
+
+    <p>{{ book.description }}</p>
+
+  </li>
+</div>

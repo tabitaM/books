@@ -1,17 +1,13 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Books Library</span>
-    <span class="example-spacer"></span>
-    <span class="example-icon">
-      <a [routerLink]="['/home']"> All Books
-      </a>
-    </span>
-    <span *ngIf="endpointService.user" class="example-icon">
-      <a [routerLink]="['/profile']">{{endpointService.user.first_name}}
-      </a>
-    </span>
-  </mat-toolbar-row>
-</mat-toolbar>
+<span>Books Library</span>
+<span class="example-spacer"></span>
+<span class="example-icon">
+  <a [routerLink]="['/home']"> All Books
+  </a>
+</span>
+<span *ngIf="endpointService.user" class="example-icon">
+  <a [routerLink]="['/profile']">{{endpointService.user.first_name}}
+  </a>
+</span>
 
 <div *ngIf="endpointService.user">
   <div class="userPrimaryDetails">
