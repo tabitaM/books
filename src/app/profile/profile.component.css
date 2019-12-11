@@ -6,7 +6,7 @@
   flex: 1 1 auto;
 }
 
-img {
+.userPhoto {
   width: 15%;
   border-radius: 50%;
   margin: 65px 0 20px 0;
@@ -36,7 +36,7 @@ hr {
   margin: 0 0 15px 20px;
 }
 
-.userPhoto {
+.navbarPhoto {
   width: 15%;
   border-radius: 50%;
 }

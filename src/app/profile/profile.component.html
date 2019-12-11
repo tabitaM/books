@@ -7,11 +7,14 @@
   <span *ngIf="endpointService.user" class="example-icon">
     <a [routerLink]="['/profile']">{{ endpointService.user.first_name }} </a>
   </span>
+  <div *ngIf="endpointService.user">
+    <img class="navbarPhoto" src="{{endpointService.user.avatar}}">
+  </div>
 </nav>
 
 <div *ngIf="endpointService.user">
   <div class="userPrimaryDetails">
-    <img src={{endpointService.user.avatar}}>
+    <img class="userPhoto" src={{endpointService.user.avatar}}>
     <span class="name">{{endpointService.user.first_name}} {{endpointService.user.last_name}} </span>
     <span class="role">{{endpointService.user.role}} </span>
   </div>
