@@ -1,5 +1,6 @@
 a {
   cursor: pointer;
+  color: inherit;
 }
 
 .categoriesCard {
@@ -59,7 +60,16 @@ li {
   flex: 1 1 auto;
 }
 
-.userPhoto {
+.navbarPhoto {
   width: 15%;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav-text {
+  color: white;
+}
+
+.col-2 {
+  overflow-y: hidden;
 }
