@@ -48,4 +48,13 @@ hr {
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+.wrap-right-nav {
+  margin-right: -150px;
+}
+
+.dropdown-item:hover {
+  background-color: #ddd;
 }

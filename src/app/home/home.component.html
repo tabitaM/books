@@ -1,19 +1,23 @@
 <nav class="navbar sticky-top navbar-dark bg-dark">
   <span class="navbar-brand nav-text">Books Library</span>
   <span class="example-spacer"></span>
-  <div *ngIf="endpointService.user" class="mr-auto">
+  <div *ngIf="endpointService.user" class="wrap-right-nav">
     <span class="example-icon nav-text">
       <a [routerLink]="['/home']"> All Books </a>
     </span>
     <span *ngIf="endpointService.user">
       <img class="navbarPhoto dropdown-toggle" src="{{endpointService.user.avatar}}" data-toggle="dropdown">
-      <div class="dropdown-menu dropdown-menu-right">
+      <div class="dropdown-menu dropdown-menu-right text-center">
+        <li class="dropdown-item">
         <a [routerLink]="['/profile']">
-          <button class="dropdown-item" type="button">{{endpointService.user.first_name}}' Profile</button>
+          {{endpointService.user.first_name}}' Profile
         </a>
+        </li>
+        <li class="dropdown-item">
         <a [routerLink]="['/login']">
-          <button class="dropdown-item" type="button" (click)="endpointService.logOut()">Log Out</button>
+          Log Out
         </a>
+        </li>
       </div>
     </span>
   </div>
@@ -53,6 +57,14 @@
                 </button>
               </div>
             </div>
+
+
+
+
+
+
+
+
           </div>
         </div>
       </div>
