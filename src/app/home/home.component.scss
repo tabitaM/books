@@ -4,14 +4,17 @@ a {
 }
 
 .categoriesCard {
-  width: 90px;
+  width: 190px;
   text-align: center;
-  margin: 15px 30px 15px 15px;
+  margin: 15px 30px -2px 15px;
+  border-radius: 5px;
+  border: none;
 }
 
 .categories {
   font-size: 2em;
   margin-right: 10px;
+  margin-left: 20px;
 }
 
 li {
@@ -54,6 +57,7 @@ li {
 
 .example-icon {
   padding: 0 14px;
+  background-color: green;
 }
 
 .example-spacer {
@@ -72,4 +76,14 @@ li {
 
 .col-2 {
   overflow-y: hidden;
+}
+
+.navbar {
+  margin-bottom: 18px;
+}
+
+button:focus {outline:0;}
+
+.col-10 {
+  background-color: red;
 }

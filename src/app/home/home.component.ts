@@ -8,4 +8,6 @@ import { EndpointService } from '../service/endpoint.service';
 })
 export class HomeComponent {
   constructor(private endpointService: EndpointService) {}
+
+  category: string = '';
 }
