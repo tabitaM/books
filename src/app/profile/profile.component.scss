@@ -37,7 +37,7 @@ hr {
 }
 
 .navbarPhoto {
-  width: 15%;
+  width: 30%;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -51,10 +51,10 @@ a {
   text-decoration: none;
 }
 
-.wrap-right-nav {
-  margin-right: -150px;
-}
-
 .dropdown-item:hover {
   background-color: #ddd;
 }
+
+.wrap-right-nav {
+  width: 150px;
+} 
