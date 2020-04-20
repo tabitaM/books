@@ -79,7 +79,12 @@ li {
 }
 
 .col-2 {
+  position: fixed;
   overflow-y: hidden;
+}
+
+.col-10 {
+  margin-left: 253px;
 }
 
 .navbar {
@@ -90,4 +95,8 @@ button:focus {outline:0;}
 
 .wrap-right-nav {
   width: 150px;
-} 
+}
+
+.all-categories {
+  margin-top: -15px;
+}
