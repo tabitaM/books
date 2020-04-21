@@ -53,6 +53,9 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                   Read more..
                 </button>
+                <button *ngIf="endpointService.categories" type="button" class="btn card-category-button" [ngStyle]="{ 'background-color':endpointService.categories[book.categoryId].color  }">
+                  {{endpointService.categories[book.categoryId].name}}
+                </button>
               </div>
             </div>
           </div>

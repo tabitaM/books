@@ -7,7 +7,7 @@ import { EndpointService } from '../service/endpoint.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private endpointService: EndpointService) {}
-
-  category: string = '';
+  constructor(private endpointService: EndpointService) {
+    console.log(endpointService);
+  }
 }
