@@ -8,11 +8,6 @@
     <span *ngIf="endpointService.user">
       <img class="navbarPhoto dropdown-toggle" src="{{endpointService.user.avatar}}" data-toggle="dropdown">
       <div class="dropdown-menu dropdown-menu-right text-center">
-        <!-- <li class="dropdown-item">
-        <a [routerLink]="['/profile']">
-          {{endpointService.user.first_name}}' Profile
-        </a>
-        </li> -->
         <li class="dropdown-item">
         <a [routerLink]="['/login']">
           Log Out
