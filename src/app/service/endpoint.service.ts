@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
 import { IBooks } from '../interfaces/IBooks';
 import { ICategories } from '../interfaces/ICategories';
@@ -9,14 +9,16 @@ import { ICategories } from '../interfaces/ICategories';
   providedIn: 'root'
 })
 export class EndpointService {
+  
   user: IUser = null;
   books: IBooks[] = null;
   categories: ICategories[] = null;
   shortDate: Date;
   baseUrl = 'http://localhost:3000';
+
   constructor(private http: HttpClient) {
     this.getUser();
-    this.getBooks();
+    this.initializeBooks();
     this.getCategories();
   }
 
@@ -29,13 +31,24 @@ export class EndpointService {
       });
   }
 
-  getBooks(): Subscription {
-    return this.http
+  initializeBooks(){
+    this.http
       .get<IBooks[]>(`${this.baseUrl}/books`)
       .subscribe((books: IBooks[]) => {
         console.log('Books: ', books);
         this.books = books;
       });
+  }
+
+  async getAsyncData() {
+    await this.http.get<IBooks[]>(`${this.baseUrl}/books`).toPromise();
+    console.log("I will wait");
+  }
+
+  getBooks() {
+    return new Observable<IBooks[]>(observer => {
+      observer.next(this.books)
+    })
   }
 
   getCategories(): Subscription {

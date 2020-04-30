@@ -2,31 +2,35 @@ import { Component } from '@angular/core';
 import { EndpointService } from '../service/endpoint.service';
 import { IBooks } from '../interfaces/IBooks';
 import { ICategories } from '../interfaces/ICategories';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  booksSelectedByCategory: IBooks[]= [];
+  booksSelectedByCategory: IBooks[] = [];
   categorySelectedId: number;
-  isLoaded: boolean = false;
+  categoryClicked: boolean = false;
+
   constructor(private endpointService: EndpointService) {
-    if(!this.isLoaded) {
-      this.booksSelectedByCategory = this.endpointService.books;
-      this.isLoaded = true;
-    }
-    console.log("LOADED: ", this.isLoaded);
-    console.log("BOOKS:", this.booksSelectedByCategory);
+    this.endpointService.getBooks().subscribe(books => {
+      console.log("BOOKS:", books);
+      this.booksSelectedByCategory = books;
+    });
   }
 
   showBooksByCategory(categorySelected: string) {
-    this.endpointService.categories.filter(category => {
-      if(category.name === categorySelected) {
+    this.categoryClicked = true;
+    this.endpointService.categories.filter((category) => {
+      if (category.name === categorySelected) {
         this.categorySelectedId = category.id;
-      }})
-    return this.booksSelectedByCategory = this.endpointService.books.filter(book => book.categoryId === this.categorySelectedId);
+      }
+    });
+    return (this.booksSelectedByCategory = this.endpointService.books.filter(
+      (book) => book.categoryId === this.categorySelectedId
+    ));
   }
 
   showAllBooks(): IBooks[] {

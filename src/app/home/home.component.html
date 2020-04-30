@@ -33,6 +33,7 @@
         </button>
         <button class="categoriesCard" *ngFor="let category of endpointService.categories" [ngStyle]="{ 'background-color': category.color }" (click)="showBooksByCategory(category.name)">
           {{ category.name }}
+          
       </button>
       </div>
     </div>
@@ -43,7 +44,7 @@
             <p class="books">BOOKS</p>
           </div>
         </div>
-        <div *ngIf="isLoaded" class="row">
+        <div class="row">
           <div *ngFor="let book of booksSelectedByCategory" class="col-lg-4 col-md-6 col-sm-12">
             <div class="card" style="width: 18rem;">
               <img src="{{ book.thumbnail }}" class="card-img-top" alt="Books Image">
