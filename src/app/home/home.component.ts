@@ -3,6 +3,7 @@ import { EndpointService } from '../service/endpoint.service';
 import { IBooks } from '../interfaces/IBooks';
 import { ICategories } from '../interfaces/ICategories';
 import { of } from 'rxjs';
+import { I18nSelectPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -12,17 +13,17 @@ import { of } from 'rxjs';
 export class HomeComponent {
   booksSelectedByCategory: IBooks[] = [];
   categorySelectedId: number;
-  categoryClicked: boolean = false;
+  categoryButtonToggle: boolean = true;
 
   constructor(private endpointService: EndpointService) {
-    this.endpointService.getBooks().subscribe(books => {
-      console.log("BOOKS:", books);
+    this.endpointService.getAsyncData().then(books => {
+      console.log("BOOKS: ", books);
       this.booksSelectedByCategory = books;
-    });
+    })
   }
 
   showBooksByCategory(categorySelected: string) {
-    this.categoryClicked = true;
+    this.categoryButtonToggle = false;
     this.endpointService.categories.filter((category) => {
       if (category.name === categorySelected) {
         this.categorySelectedId = category.id;
@@ -34,6 +35,7 @@ export class HomeComponent {
   }
 
   showAllBooks(): IBooks[] {
+    this.categoryButtonToggle = true;
     this.booksSelectedByCategory = this.endpointService.books;
     return this.booksSelectedByCategory;
   }

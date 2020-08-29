@@ -40,9 +40,9 @@ export class EndpointService {
       });
   }
 
-  async getAsyncData() {
-    await this.http.get<IBooks[]>(`${this.baseUrl}/books`).toPromise();
+  async getAsyncData(): Promise<IBooks[]> {
     console.log("I will wait");
+    return await this.http.get<IBooks[]>(`${this.baseUrl}/books`).toPromise();
   }
 
   getBooks() {

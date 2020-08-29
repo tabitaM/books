@@ -31,7 +31,7 @@
         <button class="categoriesCard" style="background-color: coral" (click)="showAllBooks()">
             All
         </button>
-        <button class="categoriesCard" *ngFor="let category of endpointService.categories" [ngStyle]="{ 'background-color': category.color }" (click)="showBooksByCategory(category.name)">
+        <button class="categoriesCard" *ngFor="let category of endpointService.categories" (click)="showBooksByCategory(category.name)" [ngStyle]="{'background-color': category.color}">
           {{ category.name }}
           
       </button>
