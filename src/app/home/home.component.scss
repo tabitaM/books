@@ -107,6 +107,6 @@ button:focus {outline:0;}
   color: white;
 }
 
-.categoryClickedClass {
-  background-color: blue;
+button:focus {
+  background-color: white !important; 
 }

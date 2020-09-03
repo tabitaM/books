@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { EndpointService } from '../service/endpoint.service';
 import { IBooks } from '../interfaces/IBooks';
-import { ICategories } from '../interfaces/ICategories';
-import { of } from 'rxjs';
-import { I18nSelectPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +10,7 @@ import { I18nSelectPipe } from '@angular/common';
 export class HomeComponent {
   booksSelectedByCategory: IBooks[] = [];
   categorySelectedId: number;
-  categoryButtonToggle: boolean = true;
+  isCategoryFocused: boolean = false;
 
   constructor(private endpointService: EndpointService) {
     this.endpointService.getAsyncData().then(books => {
@@ -23,7 +20,6 @@ export class HomeComponent {
   }
 
   showBooksByCategory(categorySelected: string) {
-    this.categoryButtonToggle = false;
     this.endpointService.categories.filter((category) => {
       if (category.name === categorySelected) {
         this.categorySelectedId = category.id;
@@ -35,8 +31,27 @@ export class HomeComponent {
   }
 
   showAllBooks(): IBooks[] {
-    this.categoryButtonToggle = true;
     this.booksSelectedByCategory = this.endpointService.books;
     return this.booksSelectedByCategory;
+  }
+
+  displayBookDescriptionById(id: number) {
+    console.log("ID: ", id);
+    this.booksSelectedByCategory.filter((book) => {
+      if(book.id === id) {
+        console.log(book.description);
+        return book.description;
+      }
+    });
+  }
+
+  categoryFoscusedIn(name: string): void {
+    this.isCategoryFocused = true;
+    console.log("Focus In for "+name);
+  }
+
+  categoryFoscusedOut(name: string): void {
+    this.isCategoryFocused = false;
+    console.log("Focus Out for "+name);
   }
 }

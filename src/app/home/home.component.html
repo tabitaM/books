@@ -31,10 +31,9 @@
         <button class="categoriesCard" style="background-color: coral" (click)="showAllBooks()">
             All
         </button>
-        <button class="categoriesCard" *ngFor="let category of endpointService.categories" (click)="showBooksByCategory(category.name)" [ngStyle]="{'background-color': category.color}">
-          {{ category.name }}
-          
-      </button>
+        <button class="categoriesCard" (focus)="categoryFoscusedIn(category.name)" (focusout)="categoryFoscusedOut(category.name)" *ngFor="let category of endpointService.categories" (click)="showBooksByCategory(category.name)" [ngStyle]="{'background-color' : category.color}">
+          {{ category.name }} 
+        </button>
       </div>
     </div>
     <div class="col-10">
@@ -51,7 +50,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{book.title}}</h5>
                 <p class="card-text ">{{book.description}}</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="displayBookDescriptionById(book.id)">
                   Read more..
                 </button>
                 <button *ngIf="endpointService.categories" type="button" class="btn card-category-button" [ngStyle]="{ 'background-color':endpointService.categories[book.categoryId].color  }">
@@ -87,6 +86,7 @@
   </div>
 </div> -->
 
+
 <div *ngFor="let book of endpointService.books">
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -108,3 +108,4 @@
     </div>
   </div>
 </div>
+
