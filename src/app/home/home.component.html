@@ -6,17 +6,19 @@
       <a [routerLink]="['/home']"> All Books </a>
     </span>
     <span *ngIf="endpointService.user">
-      <img class="navbarPhoto dropdown-toggle" src="{{endpointService.user.avatar}}" data-toggle="dropdown">
+      <img
+        class="navbarPhoto dropdown-toggle"
+        src="{{ endpointService.user.avatar }}"
+        data-toggle="dropdown"
+      />
       <div class="dropdown-menu dropdown-menu-right text-center">
         <li class="dropdown-item">
-        <a [routerLink]="['/profile']">
-          {{endpointService.user.first_name}}' Profile
-        </a>
+          <a [routerLink]="['/profile']">
+            {{ endpointService.user.first_name }}' Profile
+          </a>
         </li>
         <li class="dropdown-item">
-        <a [routerLink]="['/login']">
-          Log Out
-        </a>
+          <a [routerLink]="['/login']"> Log Out </a>
         </li>
       </div>
     </span>
@@ -28,14 +30,51 @@
     <div class="col-2">
       <p class="categories">CATEGORIES</p>
       <div *ngIf="endpointService.categories" class="all-categories">
-        <button class="categoriesCard" style="background-color: coral" (click)="showAllBooks()">
-            All
+        <button
+          class="categoriesCard"
+          style="background-color: coral; outline: 0"
+          (click)="showAllBooks()"
+        >
+          All
         </button>
-        <button class="categoriesCard" (focus)="categoryFoscusedIn(category.name)" (focusout)="categoryFoscusedOut(category.name)" *ngFor="let category of endpointService.categories" (click)="showBooksByCategory(category.name)" [ngStyle]="{'background-color' : category.color}">
-          {{ category.name }} 
+        <button
+          class="categoriesCard"
+          *ngFor="let category of endpointService.categories"
+          (click)="showBooksByCategory(category.id)"
+          (mouseenter)="showEditButton(category.id)"
+          (mouseleave)="removeEditButton()"
+          [ngStyle]="{ 'background-color': category.color, outline: 0 }"
+        >
+          <div
+            *ngIf="
+              category.id === isEditingCategory;
+              then thenBlock;
+              else elseBlock
+            "
+          ></div>
+
+          <ng-template #thenBlock>
+            <input
+              #categoryInput
+              [(ngModel)]="category.name"
+              (keydown.enter)="updateCategory()"
+              (mouseleave)="removeIsEditingCategory()"
+            />
+          </ng-template>
+
+          <ng-template #elseBlock>
+            {{ category.name }}
+            <button
+              *ngIf="category.id === selectedCategory"
+              (click)="setIsEditingCategory(category.id)"
+            >
+              edit
+            </button>
+          </ng-template>
         </button>
       </div>
     </div>
+
     <div class="col-10">
       <div class="container">
         <div class="row">
@@ -44,17 +83,38 @@
           </div>
         </div>
         <div class="row">
-          <div *ngFor="let book of booksSelectedByCategory" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card" style="width: 18rem;">
-              <img src="{{ book.thumbnail }}" class="card-img-top" alt="Books Image">
+          <div
+            *ngFor="let book of booksDisplayed"
+            class="col-lg-4 col-md-6 col-sm-12"
+          >
+            <div class="card" style="width: 18rem">
+              <img
+                src="{{ book.thumbnail }}"
+                class="card-img-top"
+                alt="Books Image"
+              />
               <div class="card-body">
-                <h5 class="card-title">{{book.title}}</h5>
-                <p class="card-text ">{{book.description}}</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="displayBookDescriptionById(book.id)">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text">{{ book.description }}</p>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  (click)="displayBookDescriptionById(book.id)"
+                >
                   Read more..
                 </button>
-                <button *ngIf="endpointService.categories" type="button" class="btn card-category-button" [ngStyle]="{ 'background-color':endpointService.categories[book.categoryId].color  }">
-                  {{endpointService.categories[book.categoryId].name}}
+                <button
+                  *ngIf="endpointService.categories"
+                  type="button"
+                  class="btn card-category-button"
+                  [ngStyle]="{
+                    'background-color':
+                      endpointService.categories[book.categoryId].color
+                  }"
+                >
+                  {{ endpointService.categories[book.categoryId].name }}
                 </button>
               </div>
             </div>
@@ -86,26 +146,37 @@
   </div>
 </div> -->
 
-
 <div *ngFor="let book of endpointService.books">
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{book.title}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <h5 class="modal-title" id="exampleModalLabel">{{ book.title }}</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          {{book.description}}
+          {{ book.description }}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
-

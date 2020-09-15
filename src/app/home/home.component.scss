@@ -91,8 +91,6 @@ li {
   margin-bottom: 18px;
 }
 
-button:focus {outline:0;}
-
 .wrap-right-nav {
   width: 150px;
 }
@@ -105,8 +103,4 @@ button:focus {outline:0;}
   width: 109px;
   margin-left: 27px;
   color: white;
-}
-
-button:focus {
-  background-color: white !important; 
 }
